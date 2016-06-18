@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 import {ChildComponent} from './components/child/child.component';
+import {Child2Component} from './components/child2/child2.component';
 import {MyService} from './services/my-service/my-service.service';
 
 @Component({
@@ -8,7 +9,7 @@ import {MyService} from './services/my-service/my-service.service';
   templateUrl: './app/app.component.html',
   styleUrls: ['./app/app.component.css'],
   providers: [MyService],
-  directives: [ChildComponent]
+  directives: [ChildComponent, Child2Component]
 })
 export class AppComponent implements OnInit {
   

@@ -12,6 +12,7 @@ import {MyService} from '../../services/my-service/my-service.service';
 export class ChildComponent implements OnInit {
   
   constructor(
+    @Host()
     private _myService : MyService
   ){}
 
