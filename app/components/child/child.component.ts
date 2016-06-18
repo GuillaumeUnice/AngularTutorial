@@ -35,4 +35,8 @@ export class ChildComponent implements OnChanges {
   updateMyChildVar() {
     this.childVar = "myNewChildVar";
   }
+  
+  //parent inject child
+  public childVarInject: string = "childVarInject";
+
 }
