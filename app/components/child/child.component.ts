@@ -1,5 +1,7 @@
-import {Component, Input, OnChanges, SimpleChange, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Host, Optional} from '@angular/core';
  
+import {MyService} from '../../services/my-service/my-service.service';
+
 @Component({
   selector: 'child',
   templateUrl: 'app/components/child/child.component.html',
@@ -7,36 +9,18 @@ import {Component, Input, OnChanges, SimpleChange, Output, EventEmitter} from '@
   providers: []
 
 })
-export class ChildComponent implements OnChanges {
-  constructor(){}
+export class ChildComponent implements OnInit {
+  
+  constructor(
+    private _myService : MyService
+  ){}
 
-  // Input communication
-  @Input('myAliasInputChild') myInputChild : string;
-  
-  //Changement I/O Child Component
-  public changeLog: string[] = [];
-  ngOnChanges(changes : {[propKey : string] : SimpleChange}) {
-    for(let propName in changes) {
-      let changedProp = changes[propName];
-      let from = JSON.stringify(changedProp.previousValue);
-      let to = JSON.stringify(changedProp.currentValue);
-      this.changeLog.push(`${propName} from ${from} to ${to}`);
-    }
+  ngOnInit() {
+    console.log(this._myService.varService);
   }
   
-  // Output communication
-  @Output() myOutputChild = new EventEmitter<string>(); 
-  myChildFunc() {
-    this.myOutputChild.emit("myOutputChildValue");
+  childFunction() {
+    console.log(this._myService.varService);
   }
-   
-  // local variable
-  public childVar : string = "myChildVar";
-  updateMyChildVar() {
-    this.childVar = "myNewChildVar";
-  }
-  
-  //parent inject child
-  public childVarInject: string = "childVarInject";
 
 }
