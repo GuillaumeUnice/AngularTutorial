@@ -10,9 +10,11 @@ import {Component, Input, OnChanges, SimpleChange, Output, EventEmitter} from '@
 export class ChildComponent implements OnChanges {
   constructor(){}
 
-  public changeLog: string[] = [];
+  // Input communication
   @Input('myAliasInputChild') myInputChild : string;
   
+  //Changement I/O Child Component
+  public changeLog: string[] = [];
   ngOnChanges(changes : {[propKey : string] : SimpleChange}) {
     for(let propName in changes) {
       let changedProp = changes[propName];
@@ -22,9 +24,15 @@ export class ChildComponent implements OnChanges {
     }
   }
   
+  // Output communication
   @Output() myOutputChild = new EventEmitter<string>(); 
-  
   myChildFunc() {
     this.myOutputChild.emit("myOutputChildValue");
+  }
+   
+  // local variable
+  public childVar : string = "myChildVar";
+  updateMyChildVar() {
+    this.childVar = "myNewChildVar";
   }
 }
