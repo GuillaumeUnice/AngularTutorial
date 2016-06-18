@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, SimpleChange} from '@angular/core';
+import {Component, Input, OnChanges, SimpleChange, Output, EventEmitter} from '@angular/core';
  
 @Component({
   selector: 'child',
@@ -20,5 +20,11 @@ export class ChildComponent implements OnChanges {
       let to = JSON.stringify(changedProp.currentValue);
       this.changeLog.push(`${propName} from ${from} to ${to}`);
     }
+  }
+  
+  @Output() myOutputChild = new EventEmitter<string>(); 
+  
+  myChildFunc() {
+    this.myOutputChild.emit("myOutputChildValue");
   }
 }

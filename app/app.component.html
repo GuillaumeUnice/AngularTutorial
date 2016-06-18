@@ -1,5 +1,5 @@
 <section class="parent">
 	<h1>Angular2 Communication Parent-Child</h1>
 	<button (click)="myFunc()">myFunc</button>
-	<child [myAliasInputChild]="parentVar"></child>
+	<child (myOutputChild)="receiveOutputChildFunc($event)" [myAliasInputChild]="parentVar"></child>
 </section>

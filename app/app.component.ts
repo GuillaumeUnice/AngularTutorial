@@ -16,4 +16,8 @@ public parentVar : string = "myParentVar";
   myFunc() {
     this.parentVar = "myNewParentVar";
   }
+  
+  receiveOutputChildFunc(outputChildValue: string) {
+    this.parentVar = outputChildValue;
+  }
 }
