@@ -1,0 +1,10 @@
+
+<section *ngIf="!_isAuthenticated" class="child">
+  <h3>Child Component : Connect</h3>
+  <form novalidate>
+    <input type="text" [(ngModel)]="pseudo" placeholder="your pseudo" />
+    <input type="password" [(ngModel)]="password" placeholder="your password" />
+
+    <input type="submit" (click)="login($event)" />
+  </form>
+</section>

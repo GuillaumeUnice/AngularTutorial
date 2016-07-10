@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 
-import {ChildComponent} from './components/child/child.component';
-import {Child2Component} from './components/child2/child2.component';
+import {ConnectComponent} from './components/connect/connect.component';
 import {MyService} from './services/my-service/my-service.service';
 
 @Component({
@@ -9,18 +8,24 @@ import {MyService} from './services/my-service/my-service.service';
   templateUrl: './app/app.component.html',
   styleUrls: ['./app/app.component.css'],
   providers: [MyService],
-  directives: [ChildComponent, Child2Component]
+  directives: [ConnectComponent]
 })
 export class AppComponent implements OnInit {
-  
+  public data: string = 'No data';
+
   constructor(private _myService : MyService){}
  
   ngOnInit() {
-    console.log(this._myService.varService);
+    this._myService.pseudo$.subscribe(
+      res => {
+        if(res) {
+          this._myService.getInfo().then(data => {
+            console.log(data);
+            this.data = data;
+          });
+        }
+      }
+    )
   }
-
-  parentFunction() {
-    this._myService.changeVarService();
- 	}
 
 }
