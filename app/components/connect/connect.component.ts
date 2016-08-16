@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { Headers, RequestOptions, HTTP_PROVIDERS } from '@angular/http';
 
 import {MyService} from '../../services/my-service/my-service.service';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'connect',
@@ -13,8 +14,7 @@ import {MyService} from '../../services/my-service/my-service.service';
 export class ConnectComponent implements OnInit {
   
   private _isAuthenticated: boolean;
-  public password: string;
-  public pseudo: string;
+  public user: User =  new User('','');
 
   constructor(
     private _myService : MyService
@@ -25,20 +25,20 @@ export class ConnectComponent implements OnInit {
       res => {
         if(res) {
           this._isAuthenticated = true;
-          this.pseudo = res;
+          this.user.pseudo = res;
         } else {
           this._isAuthenticated = false;
-          this.pseudo = null;       
+          this.user.pseudo = null;       
         }
       }
     )
   }
-  
-  public login(event: Event): void {
+
+  public login(value: User): void {
     event.preventDefault();
-    this._myService.login(this.pseudo, this.password);
-    this.password = null;
-    this.pseudo = null;
+    this._myService.login(value.pseudo, value.password);
+    this.user.password = '';
+    this.user.pseudo = '';
     this._isAuthenticated = true;
     event.stopPropagation();
 }

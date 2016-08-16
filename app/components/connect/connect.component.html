@@ -1,10 +1,25 @@
 
 <section *ngIf="!_isAuthenticated" class="child">
-  <h3>Child Component : Connect</h3>
-  <form novalidate>
-    <input type="text" [(ngModel)]="pseudo" placeholder="your pseudo" />
-    <input type="password" [(ngModel)]="password" placeholder="your password" />
+  <h2>Child Component : Connect</h2>
+  
+  <h3>Connection form</h3>
 
-    <input type="submit" (click)="login($event)" />
-  </form>
+  <form #formLogin="ngForm" (ngSubmit)="login(formLogin.value)" novalidate>
+      <div class="form-group">
+        <label for="pseudo">Pseudo</label>
+        <input type="text" [(ngModel)]="user.pseudo" name="pseudo" minlength="3" placeholder="your pseudo" required #pseudo="ngModel">
+        <div *ngIf="!pseudo.valid && (pseudo.dirty || formLogin.submitted )">
+          Pseudo is required (3 characters minimum)
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" [(ngModel)]="user.password" name="password" #password="ngModel" placeholder="your password" required>
+          <div *ngIf="!password.valid && (password.dirty || formLogin.submitted )">
+          Password is required
+        </div>
+      </div>
+      <button [disabled]="!formLogin.valid" type="submit">Submit</button>
+    </form>
 </section>

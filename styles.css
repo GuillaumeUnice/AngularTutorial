@@ -7,3 +7,105 @@ body {
   margin: 2em;
 }
 
+body {
+  background: #369;
+}
+
+h1, h2, h3 {
+  margin: 40px auto;
+  color: #fff;
+  letter-spacing: 3px;
+}
+
+h1 {font: 22px Helvetica;   text-align: center;}
+h2 {font: 20px Helvetica;}
+h3 {font: 16px Helvetica;   text-align: center;}
+
+form {
+  display: table;
+  margin: 40px auto;
+}
+
+form label {
+    position: relative;
+    display: block;
+}
+form input {
+  font: 18px Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  display: block;
+  border: none;
+  padding: 20px;
+  width: 300px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+} 
+form input::placeholder {
+  transition: all 0.2s ease-in-out;
+  color: #999;
+  font: 18px Helvetica, Arial, sans-serif;
+}
+  
+form input:focus, form input.populated {
+  padding-top: 28px;
+  padding-bottom: 12px;
+}
+form input::placeholder {
+  color: transparent;
+}
+    
+form input + span {
+  opacity: 1;
+  top: 10px;
+}
+
+form span {
+  color: #35dc9b;
+  font: 13px Helvetica, Arial, sans-serif;
+  position: absolute;
+  top: 0px;
+  left: 20px;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+  
+input[type="submit"] {
+  transition: all 0.2s ease-in-out;
+  font: 18px Helvetica, Arial, sans-serif;
+  border: none;
+  background: #1aaf75;
+  color: #fff;
+  padding: 16px 40px;
+  cursor: pointer;
+} 
+input[type="submit"]:hover {
+  background: #109f67;
+}
+
+button {
+  font-size: 14px;
+  padding: 8px;
+  cursor: pointer;
+  color: white;
+  background-color: #1aaf75;
+  border: 2px solid #1aaf75;
+}
+
+button[disabled] {
+  background-color: gray;
+  border: 2px solid gray;
+}
+section {
+  padding: 0 0 15px 15px;
+}
+
+/****************     Form     ****************/
+.ng-valid[required] {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid {
+  border-left: 5px solid #a94442; /* red */
+}
