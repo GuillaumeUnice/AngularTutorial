@@ -7,8 +7,7 @@ import {MyService} from './services/my-service/my-service.service';
   selector: 'my-app',
   templateUrl: './app/app.component.html',
   styleUrls: ['./app/app.component.css'],
-  providers: [MyService],
-  directives: [ConnectComponent]
+  providers: [MyService]
 })
 export class AppComponent implements OnInit {
   public data: string = 'No data';

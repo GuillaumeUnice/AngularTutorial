@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import { Headers, RequestOptions, HTTP_PROVIDERS } from '@angular/http';
 
 import {MyService} from '../../services/my-service/my-service.service';
 import { User } from '../../models/user';
