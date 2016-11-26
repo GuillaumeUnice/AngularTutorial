@@ -1,3 +1,8 @@
+Update version : <input type="number" [(ngModel)]="version" />
+<button (click)="updateUserProperty()">User Property</button>
+<button (click)="updateUserReference()">User Reference</button>
+<about [version]="version" [user]="user" [addItemStream]="_myService.pseudo$"></about>
+
 <connect></connect>
 <section class="parent">
 	<h1>Angular2 Component Parent</h1>
