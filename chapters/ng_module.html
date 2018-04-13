@@ -1,0 +1,41 @@
+<section>
+    <h2>NG Module</h2>
+</section>
+<section>
+    <h2>Angular Modules vs ES6 Modules</h2>
+    <ul>
+        <li>Angular modules is a decorator</li>
+        <li>Angular modules can import all Angular concept : Component, Pipe, Service</li>
+        <li>ES6 modules is just the standard to include and use a js file from another : wrap private details in a closure and expose only the public API we want</li>
+    </ul>
+</section>
+<section>
+    <h2>Rout Module</h2>
+    <p>
+        The
+        <strong>Root Module</strong> is all we need for Application
+        <br>
+        Then, we structure in lot of <strong>Features Modules</strong> (collections of related functionality).
+        And Import the <strong>Feature Module</strong> into the <strong>Root Module</strong>
+    </p>
+</section>
+<section>
+    <h2>Bubbling Up</h2>
+    <p>
+            When a component ask a dependency there is three way before throw an error:
+    </p>
+   <ul>
+       <li>Angular try to find this dependency in property provider of current component</li>
+       <li>Try to find in parent provider, then the parent of parent etc. => Else Angular throw an error</li>
+       <li>The third possibility it search until host component provider and not above</li>
+   </ul>
+
+</section>
+<section>
+        <h2>Shared Module</h2>
+        <p>
+                Shared transversal module
+        </p>
+        <p>Antipattern => Never use provider property of a Shared Module</p>
+
+    </section>
